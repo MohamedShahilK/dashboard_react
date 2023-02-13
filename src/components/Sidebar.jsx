@@ -7,16 +7,23 @@ import { MdOutlineCancel } from 'react-icons/md'
 
 import { links } from '../assets/data/sidebar_data'
 
-import { ContextProvider, UseContextProvider } from '../contexts/ContextProvider'
+import { UseContextProvider } from '../contexts/ContextProvider'
 
 const Sidebar = () => {
-  const { activeSideBar, setActiveSideBar } = UseContextProvider()
+  const { activeSideBar, setActiveSideBar, screenSize } = UseContextProvider()
   // const activeSideBar = true;
 
   // classNames for the items of the Main Headings based on isActive boolean provided by the NavLink
   // const activeLink = className='flex items-center gap-5 pl-4 pt-3 pb-2.5 m-2 rounded-lg text-white text-base ';
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 m-2 rounded-lg text-base text-white';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 m-2 rounded-lg text-base text-gray-700 hover:bg-light-gray dark:text-gray-200 dark:hover:text-black';
+
+  // Only works for screensize <= 900. So SideBar in largescreen( >900 ) is always visible
+  const handleCloseSideBar = () => {
+    if (activeSideBar && screenSize <= 900) {
+      setActiveSideBar(false)
+    }
+  }
 
   return (
 
@@ -29,7 +36,11 @@ const Sidebar = () => {
             {/* Logo, Name, Cancel Button */}
             <div className='flex justify-between items-center'>
               {/* logo and name */}
-              <Link to="/" onClick={() => setActiveSideBar(false)} className="flex items-center gap-3 ml-3 mt-4 text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              <Link to="/"
+                // onClick={() => setActiveSideBar(false)}
+                onClick={handleCloseSideBar}
+                className="flex items-center gap-3 ml-3 mt-4 text-xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+              >
                 <SiShopware /><span>PepperTrain</span>
               </Link>
               {/* logo and name */}
@@ -64,7 +75,7 @@ const Sidebar = () => {
                         <NavLink
                           to={`/${eachLink.name}`}
                           key={eachLink.name}
-                          onClick={() => { }}
+                          onClick={handleCloseSideBar}
                           // isActive boolean is provided by NavLink
                           className={({ isActive }) => isActive ? activeLink : normalLink}
                         >

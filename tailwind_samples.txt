@@ -7,6 +7,7 @@ font-extrabold -- font weight extrabold
 h-screen -- 100vh
 w-screen -- 100vw 
 w-full -- 100% width
+mx-6  -- both left and right margins
 
 // For container,buttons etc
 rounded-full -- border radius 9999px

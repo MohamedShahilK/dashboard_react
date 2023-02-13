@@ -34,6 +34,7 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
+        {/* Relative positioning keeps elements in the normal flow. That means that after you position them, their original location is still occupying space */}
         <div className="flex relative dark:bg-main-dark-bg">
           {/*  */}
           {/* Settings button */}
@@ -72,13 +73,15 @@ const App = () => {
           {/* SideBar */}
 
           {/*  */}
-          {/* Navigation Bar */}
+          {/* Navigation Bar */}          
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeSideBar ? "md:ml-72" : "flex-2"
               }`}
           >
-            {/* <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full"> */}
-            <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg navbar">
+            {/* in case of fixed, it occupy here all remaining width space (becoz, here w-full is given), even there is a flex child remains*/}
+            {/* in case of static (normal flow), even there is a "w-full", it can only occupy the remaining 100% width after occupied by the other flex child*/}
+            <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg w-full">
+              {/* <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg"> */}
               {/* NavBar */}
               <Navbar />
             </div>

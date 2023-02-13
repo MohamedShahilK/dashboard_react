@@ -7,6 +7,8 @@
 
 // don't use "npm audit"
 
+// when parents with display property "inline-flex" coming together and also if there is enough space to occupy them together, then they occupy there (ie; in a single line)
+
 // 
 
 
