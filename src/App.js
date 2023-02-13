@@ -33,9 +33,9 @@ const App = () => {
     <div>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
+          {/*  */}
+          {/* Settings button */}
           <div className="fixed right-4 bottom-4">
-            {/*  */}
-            {/* Settings button */}
             <TooltipComponent
               content="Settings"
               position="Top"
@@ -54,31 +54,34 @@ const App = () => {
               </button>
             </TooltipComponent>
           </div>
+          {/* Settings button */}
+
           {/*  */}
           {/* SideBar */}
           {activeMenu ? (
             <div className="sidebar w-72 fixed bg-white dark:bg-secondary-dark-bg ">
-              {/* SideBar */}
               <Sidebar />
             </div>
           ) : (
             <div className="w-0 dark:bg-secondary-dark-bg">
-              {/* No SideBar */}
               <Sidebar />
             </div>
           )}
+          {/* SideBar */}
+
           {/*  */}
           {/* Navigation Bar */}
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? "md:ml-72" : "flex-2"
               }`}
           >
-            <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg w-full">
+            {/* <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full"> */}
+            <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg navbar">
               {/* NavBar */}
               <Navbar />
             </div>
           </div>
-          {/*  */}
+          {/*  */}   
           {/*  */}
           {/* Routes */}
           <div>

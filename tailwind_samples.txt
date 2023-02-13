@@ -1,0 +1,18 @@
+// For Text
+tracking-tight -- letter spacing
+font-extrabold -- font weight extrabold
+
+
+// For Screen
+h-screen -- 100vh
+w-screen -- 100vw 
+w-full -- 100% width
+
+// For container,buttons etc
+rounded-full -- border radius 9999px
+
+// Display
+md:hidden -- display:hidden for medium devices
+block -- display:block
+
+
