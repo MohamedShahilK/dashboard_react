@@ -73,11 +73,14 @@ const App = () => {
           {/* SideBar */}
 
           {/*  */}
-          {/* Navigation Bar */}          
-          <div
-            className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeSideBar ? "md:ml-72" : "flex-2"
-              }`}
-          >
+
+          {/* ---------------------------------------------------------------------------------------------- */}
+
+          {/* Main Section or Body Section excluding sidebar and settings button*/}
+          <div className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeSideBar ? "md:ml-72" : "flex-2"}`}>
+
+            {/* Navigation Bar */}
+
             {/* in case of fixed, it occupy here all remaining width space (becoz, here w-full is given), even there is a flex child remains*/}
             {/* in case of static (normal flow), even there is a "w-full", it can only occupy the remaining 100% width after occupied by the other flex child*/}
             <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg w-full">
@@ -85,41 +88,47 @@ const App = () => {
               {/* NavBar */}
               <Navbar />
             </div>
+
+            {/*  */}
+            {/*  */}
+            {/* Routes */}
+            <div>
+              <Routes>
+                {/*  */}
+                {/* Dashboard */}
+
+                {/* <Route path="/" element="Ecommerce"/> */}
+                <Route path="/" element={<Ecommerce />} />
+                <Route path="/ecommerce" element={<Ecommerce />} />
+
+                {/* Pages */}
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/employees" element={<Employees />} />
+                <Route path="/customers" element={<Customers />} />
+
+                {/* Apps */}
+                <Route path="/kanban" element={<Kanban />} />
+                <Route path="/editor" element={<Editor />} />
+                <Route path="/calender" element={<Calendar />} />
+                <Route path="/color-picker" element={<ColorPicker />} />
+
+                {/* Charts */}
+                <Route path="/line" element={<Line />} />
+                <Route path="/area" element={<Area />} />
+                <Route path="/bar" element={<Bar />} />
+                <Route path="/pie" element={<pie />} />
+                <Route path="/financial" element={<Financial />} />
+                <Route path="/color-mapping" element={<ColorMapping />} />
+                <Route path="/pyramid" element={<Pyramid />} />
+                <Route path="/stacked" element={<Stacked />} />
+              </Routes>
+            </div>
+
           </div>
-          {/*  */}
-          {/*  */}
-          {/* Routes */}
-          <div>
-            <Routes>
-              {/*  */}
-              {/* Dashboard */}
+          {/* Main Section or Body Section excluding sidebar and settings button*/}
 
-              {/* <Route path="/" element="Ecommerce"/> */}
-              <Route path="/" element={<Ecommerce />} />
-              <Route path="/ecommerce" element={<Ecommerce />} />
+          {/* ---------------------------------------------------------------------------------------------- */}
 
-              {/* Pages */}
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/employees" element={<Employees />} />
-              <Route path="/customers" element={<Customers />} />
-
-              {/* Apps */}
-              <Route path="/kanban" element={<Kanban />} />
-              <Route path="/editor" element={<Editor />} />
-              <Route path="/calender" element={<Calendar />} />
-              <Route path="/color-picker" element={<ColorPicker />} />
-
-              {/* Charts */}
-              <Route path="/line" element={<Line />} />
-              <Route path="/area" element={<Area />} />
-              <Route path="/bar" element={<Bar />} />
-              <Route path="/pie" element={<pie />} />
-              <Route path="/financial" element={<Financial />} />
-              <Route path="/color-mapping" element={<ColorMapping />} />
-              <Route path="/pyramid" element={<Pyramid />} />
-              <Route path="/stacked" element={<Stacked />} />
-            </Routes>
-          </div>
         </div>
       </BrowserRouter>
     </div>
