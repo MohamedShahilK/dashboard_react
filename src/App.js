@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
+import { UseContextProvider } from './contexts/ContextProvider'
+
 // import {Navbar,Footer,Sidebar,ThemeSettings} from './components/index'
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import {
@@ -27,8 +29,8 @@ import {
 import "./App.css";
 
 const App = () => {
-  //   return <h1 className="underline text-3xl">App</h1>;
-  const activeMenu = true;
+  const { activeSideBar } = UseContextProvider()
+  // const activeSideBar = true;
   return (
     <div>
       <BrowserRouter>
@@ -58,7 +60,7 @@ const App = () => {
 
           {/*  */}
           {/* SideBar */}
-          {activeMenu ? (
+          {activeSideBar ? (
             <div className="sidebar w-72 fixed bg-white dark:bg-secondary-dark-bg ">
               <Sidebar />
             </div>
@@ -72,7 +74,7 @@ const App = () => {
           {/*  */}
           {/* Navigation Bar */}
           <div
-            className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? "md:ml-72" : "flex-2"
+            className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeSideBar ? "md:ml-72" : "flex-2"
               }`}
           >
             {/* <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full"> */}
@@ -81,7 +83,7 @@ const App = () => {
               <Navbar />
             </div>
           </div>
-          {/*  */}   
+          {/*  */}
           {/*  */}
           {/* Routes */}
           <div>

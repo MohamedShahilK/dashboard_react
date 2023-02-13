@@ -7,8 +7,11 @@ import { MdOutlineCancel } from 'react-icons/md'
 
 import { links } from '../assets/data/sidebar_data'
 
+import { ContextProvider, UseContextProvider } from '../contexts/ContextProvider'
+
 const Sidebar = () => {
-  const activeMenu = true;
+  const { activeSideBar, setActiveSideBar } = UseContextProvider()
+  // const activeSideBar = true;
 
   // classNames for the items of the Main Headings based on isActive boolean provided by the NavLink
   // const activeLink = className='flex items-center gap-5 pl-4 pt-3 pb-2.5 m-2 rounded-lg text-white text-base ';
@@ -19,20 +22,24 @@ const Sidebar = () => {
 
     <div className='ml-3 pb-10 h-screen overflow-auto md:overflow-hidden md:hover:overflow-auto'>
       {
-        activeMenu && (
+        // activeSideBar && (
+        (
           <>
 
             {/* Logo, Name, Cancel Button */}
             <div className='flex justify-between items-center'>
               {/* logo and name */}
-              <Link to="/" onClick={() => { }} className="flex items-center gap-3 ml-3 mt-4 text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              <Link to="/" onClick={() => setActiveSideBar(false)} className="flex items-center gap-3 ml-3 mt-4 text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
                 <SiShopware /><span>PepperTrain</span>
               </Link>
               {/* logo and name */}
 
               {/* cancel button */}
               <TooltipComponent content="Menu" >
-                <button type='button' onClick={() => { }} className="block md:hidden mt-4 p-3 rounded-full text-xl ">
+                <button type='button' onClick={() => {
+                  // setActiveSideBar(false)
+                  setActiveSideBar((prevActiveSideBar) => !prevActiveSideBar)
+                }} className="block md:hidden mt-4 p-3 rounded-full text-xl ">
                   <MdOutlineCancel />
                 </button>
               </TooltipComponent>
