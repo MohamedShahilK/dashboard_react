@@ -97,7 +97,104 @@ const Ecommerce = () => {
       {/* Upper Section */}
 
       {/* Revenue Section */}
-      <div>
+      <div className='flex flex-wrap justify-center'>
+
+        <div className='bg-white dark:bg-secondary-dark-bg dark:text-gray-200 m-3 p-4 rounded-2xl md:w-780'>
+
+
+          {/* Above Content of Revenue Section*/}
+          <div className='flex justify-between'>
+
+            {/* Heading */}
+            <p className='font-semibold text-xl'>Revenue Updates</p>
+
+            {/* Expense and  Budget*/}
+            <div className='flex items-center gap-4'>
+              <p className='flex items-center gap-2 text-gray-600 hover:drop-shadow-xl'>
+                <span><GoPrimitiveDot /></span>
+                <span>Expense</span>
+              </p>
+
+              <p className='flex items-center gap-2 text-green-400 hover:drop-shadow-xl'>
+                <span><GoPrimitiveDot /></span>
+                <span>Budget</span>
+              </p>
+            </div>
+
+          </div>
+          {/* Above Content of Revenue Section*/}
+
+          {/* Below Content of Revenue Section*/}
+          <div className='mt-10 flex flex-wrap justify-center gap-10 '>
+
+            {/* Left Part of below Content of Revenue Section */}
+            <div className='border-r-1 border-color m-4 pr-10'>
+
+              {/* Budget */}
+              <div>
+                <p>
+                  <span className='text-3xl font-semibold'>$93,438</span>
+                  <span className='p-1.5 hover:drop-shadow-xl text-white bg-green-400 rounded-full ml-3 text-xs cursor-pointer'>
+                    23%
+                  </span>
+                </p>
+                <p className='text-gray-500 mt-1'>
+                  Budget
+                </p>
+              </div>
+
+              {/* Expense */}
+              <div className='mt-8'>
+                <p>
+                  <span className='text-3xl font-semibold'>$48,438</span>
+                </p>
+                <p className='text-gray-500 mt-1'>
+                  Expense
+                </p>
+              </div>
+
+              {/* SparkLine Chart */}
+              <div className='mt-5'>
+
+                <SparkLine
+                  borderColor="red"
+                  id="line-sparkline"
+                  type="line"
+                  height="80px"
+                  width="250px"
+                  data={SparklineAreaData}
+                  graphFillColor="blue"
+                />
+              </div>
+
+              {/* Download Report Button */}
+              <div className='mt-10'>
+                <Button
+                  color="white"
+                  bgColor="blue"
+                  text="Download Report"
+                  borderRadius="10px"
+                />
+              </div>
+
+            </div>
+            {/* Left Part of below Content of Revenue Section */}
+
+            {/* Right Part of below Content of Revenue Section */}
+            <div>
+
+              <Stacked
+                width="320px"
+                height="360px"
+              />
+
+            </div>
+            {/* Right Part of below Content of Revenue Section */}
+
+          </div>
+          {/* Below Content of Revenue Section*/}
+
+        </div>
 
       </div>
       {/* Revenue Section */}
