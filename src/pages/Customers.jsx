@@ -11,18 +11,36 @@ import { customersData, customersGrid } from '../assets/data/customers_page_data
 // import {Header} from '../components/index'
 import { Header } from '../components'
 
-const commandClick = (args) => {
-  if (args.commandColumn.buttonOption.content === 'Delete') {
-    // var grid = document.getElementById('Grid').ej2_instances[0];
-    // grid.deleteRow(args.target.closest('tr'));
+// const commandClick = (args) => {  
+//   if (args.requestType === "delete") { //triggers while deleting the record 
+//     console.log("commandClick triggers");
+//     console.log(args.data);
+//   }
+// }
+
+const actionBegin = (args) => {  
+  if (args.requestType === "delete") { //triggers while deleting the record 
+    console.log("actionBegin triggers");
+    console.log(args.data);
   }
-  console.log('111111111111111111111111');
+}
+
+const actionComplete = (args) => {
+  // if (args.requestType === "save") { // triggers when the record was added  
+  //   console.log("actionComplete triggers");
+  //   console.log(args.data);
+  // }
+  if (args.requestType === "delete") { // triggers when the record was deleted 
+    console.log("actionComplete triggers");
+    console.log(args.data);
+  }
 }
 
 const Customers = () => {
   return (
     // <div>Customers</div>
     <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
+      
       <Header category="Page" title="Customers" />
 
       {/* DataTable By Using Synfusion */}
@@ -36,7 +54,9 @@ const Customers = () => {
         toolbar={['Delete',]} // //  we need to Inject "Toolbar"
         editSettings={{ allowEditing: true, allowDeleting: true, }}
         width='auto'
-        commandClick={commandClick}
+        // commandClick={commandClick}
+        actionBegin={actionBegin}
+        actionComplete={actionComplete}
 
       >
         <ColumnsDirective>
