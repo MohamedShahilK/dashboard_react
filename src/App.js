@@ -62,7 +62,7 @@ const App = () => {
           {/*  */}
           {/* SideBar */}
           {activeSideBar ? (
-            <div className="sidebar w-72 fixed bg-white dark:bg-secondary-dark-bg ">
+            <div className="sidebar w-72 fixed bg-white dark:bg-secondary-dark-bg z-50">
               <Sidebar />
             </div>
           ) : (

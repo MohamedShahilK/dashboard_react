@@ -19,7 +19,7 @@ const Stacked = ({ width, height }) => {
       primaryYAxis={stackedPrimaryYAxis}
       chartArea={{ border: { width: 0 } }} //remove outside border
       tooltip={{ enable: true }}
-      legendSettings={{ background: "white"}}  
+      legendSettings={{ background: "white" }}
 
     >
       <Inject services={[Legend, Category, Tooltip, StackingColumnSeries]} />
@@ -36,3 +36,6 @@ const Stacked = ({ width, height }) => {
 };
 
 export default Stacked;
+
+
+// https://www.syncfusion.com/react-components/react-charts/chart-types/stacked-column-chart
