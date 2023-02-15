@@ -34,7 +34,7 @@ const CustomNavButton = ({ title, customFunc, icon, buttonColor, dotColor }) => 
 const Navbar = () => {
   const {
     activeSideBar, setActiveSideBar, isClicked, setIsClicked, handleClick, screenSize,
-    setScreenSize,
+    setScreenSize, currentColor
   } = UseContextProvider()
 
   // UseContextProvider
@@ -82,7 +82,7 @@ const Navbar = () => {
         customFunc={() => {
           setActiveSideBar((prevActiveSideBar) => !prevActiveSideBar)
         }}
-        buttonColor="blue" icon={<AiOutlineMenu />}
+        buttonColor={currentColor} icon={<AiOutlineMenu />}
       />
 
       <div className='flex'>
@@ -90,7 +90,7 @@ const Navbar = () => {
         <CustomNavButton
           title="Cart"
           customFunc={() => handleClick('cart')}
-          buttonColor="blue" icon={<FiShoppingCart />}
+          buttonColor={currentColor} icon={<FiShoppingCart />}
         />
 
         {/* Chat Button */}
@@ -98,7 +98,7 @@ const Navbar = () => {
           title="Chat"
           dotColor="#03C9D7"
           customFunc={() => handleClick('chat')}
-          buttonColor="blue" icon={<BsChatLeft />}
+          buttonColor={currentColor} icon={<BsChatLeft />}
         />
 
         {/* Notification Button */}
@@ -106,7 +106,7 @@ const Navbar = () => {
           title="Notifications"
           dotColor="#03C9D7"
           customFunc={() => handleClick('notification')}
-          buttonColor="blue" icon={<RiNotification3Line />}
+          buttonColor={currentColor} icon={<RiNotification3Line />}
         />
 
         {/* User Profile Button */}

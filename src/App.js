@@ -29,16 +29,16 @@ import {
 import "./App.css";
 
 const App = () => {
-  const { activeSideBar } = UseContextProvider()
+  const { activeSideBar, themeSettings, setThemeSettings, currentColor, currentMode } = UseContextProvider()
   // const activeSideBar = true;
   return (
-    <div>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         {/* Relative positioning keeps elements in the normal flow. That means that after you position them, their original location is still occupying space */}
         <div className="flex relative dark:bg-main-dark-bg">
           {/*  */}
           {/* Settings button */}
-          <div className="fixed right-4 bottom-4">
+          <div className="fixed right-4 bottom-4 z-50">
             <TooltipComponent
               content="Settings"
               position="Top"
@@ -46,9 +46,13 @@ const App = () => {
             >
               <button
                 type="button"
+                onClick={() => setThemeSettings(true)}
                 className="text-4xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
                 style={{
-                  background: "blue",
+                  // background: "blue",
+
+                  background: currentColor,
+
                   borderRadius: "50%",
                   color: "white",
                 }}
@@ -60,9 +64,9 @@ const App = () => {
           {/* Settings button */}
 
           {/*  */}
-          {/* SideBar */}
+          {/* SideBar */}  {/* z-50 or nav-item */}
           {activeSideBar ? (
-            <div className="sidebar w-72 fixed bg-white dark:bg-secondary-dark-bg z-50">
+            <div className="sidebar w-72 fixed bg-white dark:bg-secondary-dark-bg nav-item">
               <Sidebar />
             </div>
           ) : (
@@ -77,7 +81,9 @@ const App = () => {
           {/* ---------------------------------------------------------------------------------------------- */}
 
           {/* Main Section or Body Section excluding sidebar and settings button*/}
-          <div className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeSideBar ? "md:ml-72" : "flex-2"}`}>
+
+          <div className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full   
+                      ${activeSideBar ? "md:ml-72" : "flex-2"}`}>
 
             {/* Navigation Bar */}
 
@@ -89,9 +95,16 @@ const App = () => {
               <Navbar />
             </div>
 
+            {/* Theme Settings */}
+
+            {themeSettings && <ThemeSettings />}
+
+            {/* Theme Settings */}
+
             {/*  */}
             {/*  */}
             {/* Routes */}
+
             <div>
               <Routes>
                 {/*  */}
@@ -121,8 +134,10 @@ const App = () => {
                 <Route path="/color-mapping" element={<ColorMapping />} />
                 <Route path="/pyramid" element={<Pyramid />} />
                 <Route path="/stacked" element={<Stacked />} />
+
               </Routes>
             </div>
+            {/* Routes */}
 
           </div>
           {/* Main Section or Body Section excluding sidebar and settings button*/}

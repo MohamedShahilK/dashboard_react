@@ -10,7 +10,7 @@ import { links } from '../assets/data/sidebar_data'
 import { UseContextProvider } from '../contexts/ContextProvider'
 
 const Sidebar = () => {
-  const { activeSideBar, setActiveSideBar, screenSize } = UseContextProvider()
+  const { activeSideBar, setActiveSideBar, screenSize, currentColor } = UseContextProvider()
   // const activeSideBar = true;
 
   // classNames for the items of the Main Headings based on isActive boolean provided by the NavLink
@@ -75,7 +75,14 @@ const Sidebar = () => {
                         <NavLink
                           to={`/${eachLink.name}`}
                           key={eachLink.name}
+
+                          //Not working
+                          // style={({ isActive }) => isActive ? ({ backgroundColor: { currentColor } }) : ({ backgroundColor: '' })} 
+
+                          style={({ isActive }) => ({ backgroundColor: isActive ? currentColor : '' })}
+
                           onClick={handleCloseSideBar}
+
                           // isActive boolean is provided by NavLink
                           className={({ isActive }) => isActive ? activeLink : normalLink}
                         >
